@@ -1,0 +1,23 @@
+<div class="container">
+    <mat-grid-list cols="4" rowHeight="50px">
+        <mat-grid-tile
+            [colspan]="4"
+            [rowspan]="2">
+            <mat-card class="fill-parent screen rtl">
+                <mat-card-content> {{ accumulatorText }}</mat-card-content>
+            </mat-card>
+        </mat-grid-tile>
+        <mat-grid-tile
+            *ngFor="let tile of tiles; let i = index"
+            [colspan]="tile.cols"
+            [rowspan]="tile.rows" 
+            class="calc-button">
+            <app-calculator-button 
+                [label]="tile.text" 
+                class="fill-parent"
+                (click)="onCalcButtonClick(i)"
+                >
+            </app-calculator-button>
+        </mat-grid-tile>
+    </mat-grid-list>    
+</div>
